@@ -122,8 +122,31 @@ Observe perpetual ping before and after inbound rule implementation
    - Service can stay as custom
    - For the Protocal click on ICMP, which will automatically change the destination port ranges to and astericks.
    - Select Deny
+   - Keep the Priority that is automatically set
    - Name the inbound rule
    - Click Add
 
       <img width="316" alt="Add icmp deny rule" src="https://github.com/s-evelyn/network-protocols/assets/53543374/a46d2363-adc9-4839-bb21-7a9771f4a056">
 
+- Refresh VM-2
+- Go back to VM-1 and observe the change on command line
+
+<img width="319" alt="request time out cmd" src="https://github.com/s-evelyn/network-protocols/assets/53543374/8bfd5591-8067-4605-b116-02edbb8d7dfc">
+
+- Note that the request is timing out.
+- Observe Wireshark traffic
+  
+  <img width="960" alt="request time out wireshark" src="https://github.com/s-evelyn/network-protocols/assets/53543374/53716a80-d2b0-4891-aac1-b4ab181d4d9d">
+
+     - Note that before there was a request and then a response, once the inbound rule was applied a request is still sent from VM-1 to VM-2 but there is no reply from VM-2. On the request line towards the end it reads "No response found" As the ping is perpetual, we see that this continues. The inbound rule that was created is working.
+
+- Navigate back to the network security group inbound rules for VM-2.
+- Delete the DenyICMP rule
+
+   <img width="954" alt="delete icmp rule" src="https://github.com/s-evelyn/network-protocols/assets/53543374/fbb2ad7c-8d19-476d-a22c-1af5c9a56497">
+
+- Go back to the
+   
+     - 
+
+ 
