@@ -74,17 +74,56 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 <h4>Observe ICMP Traffic </h4>
 
+Observe ICMP traffic between hosts on the same network
+
+- Open Wireshark, type in icmp in the search bar on top and click on the blue arrow next to it to filter for icmp traffic  
+
+   <img width="960" alt="filter icmp" src="https://github.com/s-evelyn/network-protocols/assets/53543374/49934b7f-151b-48cb-a0af-1b7d8f8cd78a">
+
+- Go to the azure portal outside of your VM, and take note of the private IP address of VM-2
+
+   <img width="746" alt="Retrieve private ip from vm-2" src="https://github.com/s-evelyn/network-protocols/assets/53543374/0a3edce7-fb1d-4e56-92da-cccb35cd84b2">
+
+- Go back to VM-1 and open command prompt. Ping the private IP of VM-2. Our ping request gives us 4 replies from VM-2
+
+   <img width="422" alt="pring private ip vm2" src="https://github.com/s-evelyn/network-protocols/assets/53543374/ade16638-d9ee-4492-88b5-3f82e786badb">
+
+- Look at the wireshark window and observe the traffic
+
+   <img width="960" alt="wireshark icmp" src="https://github.com/s-evelyn/network-protocols/assets/53543374/22509a94-328f-40a4-9fd9-ce3c613cee98">
+
+   - Observe that VM-1, which has a private IP address of (10.0.0.4) sends a request to VM-2 private IP address (10.0.0.5), and then VM-2 replies to VM-1. This demonstrates what happens when a ping request is sent. Internet Control Message Protocal (ICMP) takes place, where VM-1 sends a request to VM-2, and VM-2 replies establishing that there is network connectivity between the two hosts.
+
+Observe ICMP traffic between a computer and the internet
+
+- In command prompt ping www.google.com
+
+   <img width="400" alt="ping google com cmd" src="https://github.com/s-evelyn/network-protocols/assets/53543374/cf05c5b2-453d-48f0-9497-759355cdb712">
+
+- Observe wireshark
+
+     <img width="960" alt="google icmp wireshark with label" src="https://github.com/s-evelyn/network-protocols/assets/53543374/36956837-04be-4879-87d0-3077105407be">
+
+   - Observe the traffic on wireshark. Notice that the destination IP is a server that hosts the website www.google.com, and that it is a similar request and reply as seen in the previous example.
 
 
+Observe perpetual ping before and after inbound rule implementation
 
+- In command prompt initiate a perpetual ping to the private IP of VM-2
 
+     <img width="325" alt="perpetual ping" src="https://github.com/s-evelyn/network-protocols/assets/53543374/b8d510f6-ba05-4324-9974-5d2e85769bf7">
 
+- In azure navigate to Network Security Group -> vm2-nsg -> Inbound security rules, click Add.
 
+  <img width="960" alt="nsg add denyicmp" src="https://github.com/s-evelyn/network-protocols/assets/53543374/1c2945d1-0668-4123-93c1-d31ebd6895de">
 
+   - For the Source click Any.
+   - For the source Port it can stay as an astricks, which means that traffic can come in on any port
+   - Service can stay as custom
+   - For the Protocal click on ICMP, which will automatically change the destination port ranges to and astericks.
+   - Select Deny
+   - Name the inbound rule
+   - Click Add
 
-
-
-
-
-
+      <img width="316" alt="Add icmp deny rule" src="https://github.com/s-evelyn/network-protocols/assets/53543374/a46d2363-adc9-4839-bb21-7a9771f4a056">
 
