@@ -145,8 +145,75 @@ Observe perpetual ping before and after inbound rule implementation
 
    <img width="954" alt="delete icmp rule" src="https://github.com/s-evelyn/network-protocols/assets/53543374/fbb2ad7c-8d19-476d-a22c-1af5c9a56497">
 
-- Go back to the
-   
-     - 
+- Go back to wireshark to observe the changes
+
+     <img width="954" alt="wireshark after rule icmp" src="https://github.com/s-evelyn/network-protocols/assets/53543374/d3d157f1-7d5a-44a7-9801-09468d1f4c98">
+
+     - Observe that now that the rule has been eliminated, VM-2 is now responding to the ping request.
+
+- Go back to command prompt and click ctrl+C, to stop the perpetual ping. Type cls, to clear previous output.
+
+- Open wireshark and clear the output by clicking on the green shark fin at the top, and continue without saving. 
+  
+  <img width="953" alt="clear wireshark" src="https://github.com/s-evelyn/network-protocols/assets/53543374/e327833c-4806-47be-b555-ebf9c2aa0cce">
+
+ _________________________________________________________________________________________________________________________
+
+<h4>Observe SSH Traffic </h4>
+
+- In Wireshark filter by ssh
+
+   <img width="954" alt="Filter for ssh in wireshark" src="https://github.com/s-evelyn/network-protocols/assets/53543374/964d83cc-3dcc-43ca-a240-a20f549c24fb">
+ 
+- Open Command Prompt and SSH into VM-2 by typing : ssh username@privateIPofVM-2, and then press enter. You should then be prompted to continue connecting. Type yes, and then click enter. Type in your passsword. Note that the area where you enter your password will stay blank, even as you enter the password. Once the password has been entered click enter.
+  
+<img width="508" alt="ssh into vm2" src="https://github.com/s-evelyn/network-protocols/assets/53543374/98b9d935-f699-4567-9e3e-68d6e38ddce3">
+
+- Navigate back to wireshark and observe the ssh traffic
+
+  <img width="960" alt="wireshark ssh into vm2" src="https://github.com/s-evelyn/network-protocols/assets/53543374/fc47b78e-d43e-48b1-a925-148aa9359c4a">
+
+    - Notice that now that we have ssh into VM-2 anything that is typed into the commandline shows up as traffic in wireshark. Also that the source port is always port 22. Try typing a few commands in the command line to observe further.
+       -  Type pwd to print the current working directory
+       -  Create a directory and call is Documents. Type mkdir Documents
+       -  Type ls to observe the directory that was created
+           
+            <img width="289" alt="ssh in cmd say commands" src="https://github.com/s-evelyn/network-protocols/assets/53543374/342f1eab-bdba-4689-a0be-e3464a3be771">
+
+   - Observe Wireshark after the commands have been executed
+
+      <img width="953" alt="wire shark ssh after" src="https://github.com/s-evelyn/network-protocols/assets/53543374/9c49d7d1-8ac7-4b00-b459-bea7598ffecc">
+
+     - Observe that there is traffic back and forth between the two VMs.
+
+- Exit the ssh connection by typing exit.
+
+     <img width="254" alt="exit out of ssh vm2" src="https://github.com/s-evelyn/network-protocols/assets/53543374/27333732-a62a-4da3-b271-67c3a5da43f5">
 
  
+  --------------------------------------------------------------------------------------------------------------------------
+
+  <h4>Observe DHCP Traffic</h4>
+
+- Clear wireshark
+- Filter for DHCP only
+- In command line issue a new IP address for VM-1 by typing in ipconfig/renew
+
+  <img width="445" alt="dhcp cmd" src="https://github.com/s-evelyn/network-protocols/assets/53543374/ed6d5c10-bd64-4093-b5a9-30c07957bee7">
+
+- Observe DHCP traffic in Wireshark
+
+     <img width="960" alt="dhcp wireshark" src="https://github.com/s-evelyn/network-protocols/assets/53543374/9cc347bd-61b3-4b5a-949f-77a3859ee1d8">
+
+  - Notice 
+
+
+
+
+
+
+  
+
+  
+
+       
