@@ -205,8 +205,10 @@ Observe perpetual ping before and after inbound rule implementation
 
      <img width="960" alt="dhcp wireshark" src="https://github.com/s-evelyn/network-protocols/assets/53543374/9cc347bd-61b3-4b5a-949f-77a3859ee1d8">
 
-  - Notice 
+  - Notice that the ports used are port 67 and port 68 as expected.
 
+
+_______________________________________________________________________________________________________________________________________________________________________________
 
 
 
