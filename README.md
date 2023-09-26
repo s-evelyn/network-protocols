@@ -163,8 +163,8 @@ Observe perpetual ping before and after inbound rule implementation
 
 - In Wireshark filter by ssh
 
-   <img width="954" alt="Filter for ssh in wireshark" src="https://github.com/s-evelyn/network-protocols/assets/53543374/964d83cc-3dcc-43ca-a240-a20f549c24fb">
- 
+  <img width="950" alt="Filter for ssh in wireshark" src="https://github.com/s-evelyn/network-protocols/assets/53543374/b4b84d7d-5c09-4d99-a518-58caafdf4e4b">
+
 - Open Command Prompt and SSH into VM-2 by typing : ssh username@privateIPofVM-2, and then press enter. You should then be prompted to continue connecting. Type yes, and then click enter. Type in your passsword. Note that the area where you enter your password will stay blank, even as you enter the password. Once the password has been entered click enter.
   
 <img width="508" alt="ssh into vm2" src="https://github.com/s-evelyn/network-protocols/assets/53543374/98b9d935-f699-4567-9e3e-68d6e38ddce3">
@@ -210,8 +210,12 @@ Observe perpetual ping before and after inbound rule implementation
 
 _______________________________________________________________________________________________________________________________________________________________________________
 
+<h4>Observe DNS Traffic</h4>
 
-
+- Filter Wireshark for DNS traffic only
+- In command line use nslookup for google.com
+  
+  <img width="393" alt="dns cmd" src="https://github.com/s-evelyn/network-protocols/assets/53543374/dbee0752-e78f-4410-962d-89f0a4927161">
 
 
   
